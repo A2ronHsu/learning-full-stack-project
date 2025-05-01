@@ -36,15 +36,15 @@
          </div>
 
          <div id="play-game">
-            <button onclick="">
+            <button onclick="playGame()">
                Play game???
             </button>
          </div>
-         <div class="color-div">
+         <div class="color-div" style="display: none;">
             <h4 >Pick a color</h4>
-            <input   type="color" id="color-picker" onchange="" value="#0084ff">
-            <p >Great... now it is ruined!</p>
-            <button  onclick="">Reset</button>
+            <input  style="display: none;" type="color" id="color-picker" onchange="changeColor()" value="#0084ff">
+            <p style="display: none;">Great... now it is ruined!</p>
+            <button  onclick="resetColor()" style="display: none;">Reset</button>
          </div>
       </section>
 
@@ -186,6 +186,39 @@
       <p>By <a target="_blank" href="aaron.com">Aaron</a> ⭐ the repo on <a target="_blank" href="https://github.com/A2ronHsu">GitHub</a></p>
    </footer>
 
-   <script></script>
+   <script>
+      const body = document.querySelector("body");
+      const colorInput = document.getElementById("color-picker");
+      const colorDiv = document.querySelector('.color-div');
+      const hiddenText = document.querySelector(".color-div p");
+      const resetButton = document.querySelector(".color-div button");
+      const playBtn = document.querySelector("#play-game");
+      console.log(colorDiv);
+
+      function playGame(){
+         colorDiv.style.display = 'block';
+         playBtn.style.display = "none";
+         colorInput.style.display = "block";
+
+      }
+
+      function changeColor(){
+         const selectedColor = colorInput.value;
+         body.style.background = selectedColor;
+         resetButton.style.display = "block";
+         hiddenText.style.display = "block";
+         colorInput.style.display = "none";
+      }
+
+      function resetColor(){
+         body.style.background = "white";
+         colorInput.style.display = "block";
+         playBtn.style.display = "block"
+
+         hiddenText.style.display = "none";
+         resetButton.style.display = "none";
+         colorDiv.style.display = "none"
+      }
+   </script>
 </body>
-</html>
+</html>style="display: none;"
