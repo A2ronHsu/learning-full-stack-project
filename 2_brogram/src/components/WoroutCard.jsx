@@ -1,4 +1,4 @@
-
+import React from "react";
 
 export default function WorkoutCard(props) {
    const { trainingPlan, woroutIndex, type, dayNum, icon } = props;
@@ -24,7 +24,54 @@ export default function WorkoutCard(props) {
             <h6>Sets</h6>
             <h6>Reps</h6>
             <h6 className="weight-input">Max Weight</h6>
+            {warmup.map((warmupExercise, warmupIndex)=>{
+               return(
+                  <React.Fragment key={warmupIndex}>
+                     <div className="execise-name">
+                        <p>{warmupIndex+1}. {warmupExercise.name}</p>
+                        <button className="help-icon">
+                           <i className="fa-regular fa-circle-question"></i>
+                        </button>
+                     </div>
+                     <p className="exercise-info">{warmupExercise.sets}</p>
+                     <p className="exercise-info">{warmupExercise.reps}</p>
+                     <input className="weight-input"  type="text" placeholder="N/A" disabled/>
+
+                  </React.Fragment>
+               )
+            })}
          </div>
+
+         <div className="workout-div">
+            <div className="execise-name">
+               <h4>Workout</h4>
+            </div>
+            <h6>Sets</h6>
+            <h6>Reps</h6>
+            <h6 className="weight-input">Max Weight</h6>
+            {workout.map((workoutExercise, warmupIndex)=>{
+               return(
+                  <React.Fragment key={warmupIndex}>
+                     <div className="execise-name">
+                        <p>{warmupIndex+1}. {workoutExercise.name}</p>
+                        <button className="help-icon">
+                           <i className="fa-regular fa-circle-question"></i>
+                        </button>
+                     </div>
+                     <p className="exercise-info">{workoutExercise.sets}</p>
+                     <p className="exercise-info">{workoutExercise.reps}</p>
+                     <input className="weight-input"  type="text" placeholder="14" />
+
+                  </React.Fragment>
+               )
+            })}
+         </div>
+
+         <div className="workout-buttons">
+            <button>Save & Exit</button>
+            <button disabled={true}>Complete</button>
+         </div>
+
       </div>
    )
 }

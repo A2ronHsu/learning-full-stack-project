@@ -1,7 +1,9 @@
-export default function Modal(){
+export default function Modal(props){
+   const {showExeciseDescription, handleCloseModal } = props;
+
    return (
       <>
-      
+         
       </>
    )
 }
